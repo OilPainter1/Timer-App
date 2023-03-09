@@ -21,7 +21,7 @@
         </div>
     </header>
 
-    <div class="container">
+    <div class="container" id="timerSettings">
         <div class="tile is-ancestor">
             <div class="tile is-parent notification is-light mt-6">
                 <div class="tile is-child is-4 box">
@@ -29,38 +29,47 @@
                     <input disabled class="spinner" id="HoursInput">
                 </div>
                 <div class="tile is-child is-4 box">
-                    <p class="subtitle">Minutes</p>
-                    <input disabled class="spinner">
+                    <p class="subtitle" id="Minutes">Minutes</p>
+                    <input disabled class="spinner" id="MinutesInput">
                 </div>
                 <div class="tile is-child is-4 box">
-                    <p class="subtitle">Seconds</p>
-                    <input disabled class="spinner">
-                </div>
-            
-                   
-            </div>
-                
-            
-       
-            
+                    <p class="subtitle" id="Seconds">Seconds</p>
+                    <input disabled class="spinner" id="SecondsInput">
+                </div>   
+            </div>    
         </div>
+    
         <div class="tile is-ancestor notification is-light" id="configureBox">
             <div class ="tile is-parent notification is-light is-4">
-                
-                    <button class="button is-primary box" id="configure">configure</button>
-                
+                    <button class="button is-success box" id="configure">
+                        configure
+                    </button>   
             </div>
-            <div class ="tile is-parent notification is-light is-4">
-                
-                <button class="button is-warning box" id="reset">reset</button>
-            
-        </div>
+            <div class ="tile is-parent notification is-light is-4">   
+                <button class="button is-warning box" id="reset">
+                    reset
+                </button>
+            </div>
            
+        
+        </div>
+    </div>
+    <div class="level">
+        <hr>
+    </div>
+    
+
+    <div class="container mt-8">
+        <div class="tile is-ancestor notification is-light mt-8">
+            <div class="tile is-parent notification is-light">
+                <button class="button is-success box" id="start">
+                    Start
+                </button>
+            </div>
         </div>
     </div>
 
-
-
+    <script src="https://momentjs.com/downloads/moment.js"></script>
 
     <script   src="https://code.jquery.com/jquery-3.6.4.min.js"   integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="   crossorigin="anonymous">
     </script>
