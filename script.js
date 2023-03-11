@@ -21,6 +21,13 @@ $("#reset").click((event)=>{
     return
 })
 
+function setTimer(hours,minutes,seconds){
+    $("#timerHours").text(hours)
+    $("#timerMinutes").text(minutes)
+    $("#timerSeconds").text(seconds)
+    return
+}
+
 
 
 
@@ -28,6 +35,7 @@ $("#configure").click((event)=>{
     userHoursInput = $("#HoursInput").val()
     userMinutesInput = $("#MinutesInput").val()
     userSecondsInput = $("#SecondsInput").val()
+    setTimer(userHoursInput,userMinutesInput,userSecondsInput)
     $("#configure").prop("disabled","true")
     $("#start").removeAttr("disabled")
     console.log(userHoursInput,userMinutesInput,userSecondsInput)
@@ -44,9 +52,7 @@ $("#start").click((event)=>{
 
         setInterval(()=>{
         timeout.subtract(1,"s")
-        $("#hoursLeft").text(timeout._data.hours)
-        $("#minutesLeft").text(timeout._data.minutes)
-        $("#secondsLeft").text(timeout._data.seconds)
+        setTimer(timeout._data.hours,timeout._data.minutes,timeout._data.seconds)
         console.log(timeout._data.hours,timeout._data.minutes,timeout._data.seconds)
         },1000)
     

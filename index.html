@@ -61,18 +61,35 @@
 
     <div class="container mt-8">
         <div class="tile is-ancestor notification is-light mt-8">
-            <div class="tile is-parent notification is-light">
+            <div class = "tile is-parent notification is-light">
                 <button class="button is-success box" id="start">
                     Start
                 </button>
             </div>
+            <div class="tile is-parent notification is-light">
+                <div class="tile is-child box is-light" id="timerHours">
+
+                </div>
+                <div class="tile is-child is-light" style="display: flex; align-items: center; justify-content: center;">
+                    :
+                </div>
+                
+                <div class="tile is-child box is-light" id="timerMinutes">
+
+                </div>
+                <div class="tile is-child is-light" style="display: flex; align-items: center; justify-content: center;">
+                    :
+                </div>
+                <div class="tile is-child box is-light" id="timerSeconds">
+
+                </div>
+                
+                    
+                
+            </div>
         </div>
     </div>
-    <div>
-        <div id="hoursLeft"></div>
-        <div id="minutesLeft"></div>
-        <div id="secondsLeft"></div>
-    </div>
+    
 
     <script src="https://momentjs.com/downloads/moment.js"></script>
 
