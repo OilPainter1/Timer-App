@@ -1,9 +1,10 @@
-
-
 let userHoursInput
 let userMinutesInput
 let userSecondsInput
 let timeout
+let timerID
+let timerFeedbackIntervalID
+
 
 Disable(["start","stop"])
 
@@ -33,9 +34,11 @@ function openModalResetButtons(timeout){
         modal.removeClass("is-active")
         
     })
-    setTimer(timeout._data.hours,timeout._data.minutes,timeout._data.seconds)
+    setTimer(0,0,0)
     Disable(["stop"])
-    $("#start").removeAttr("disabled")
+    Disable(["start"])
+    $("#configure").removeAttr("disabled")
+    $("#reset").removeAttr("disabled")
 
 }
 
@@ -49,10 +52,6 @@ function Disable(idArray){
 
 $("#reset").click((event)=>{
     Disable(["start","stop"])
-
-    if($("#timerHours").val() || $("#timerMinutes").val() || $("#timerSeconds").val()){
-        setTimer(0,0,0)
-    }
     $("#configure").removeAttr("disabled")
     $(".spinner").val(0)
     return
@@ -63,6 +62,21 @@ $("#configure").click((event)=>{
     userHoursInput = $("#HoursInput").val()
     userMinutesInput = $("#MinutesInput").val()
     userSecondsInput = $("#SecondsInput").val()
+    if (userHoursInput == 0 && userMinutesInput == 0 && userSecondsInput == 0) {
+        var badInput = document.createElement("p")
+        if(timerFeedbackIntervalID){
+            return
+        }
+        else{
+            $("#timerInputFeedback").text("non-zero time required").css("color","red").css("font-size","15px").css("padding-right","4px")
+            timerFeedbackIntervalID = setTimeout(()=>{
+                $("#timerInputFeedback").text("")
+                timerFeedbackIntervalID = null
+            },2500)
+        }
+        
+        return
+    }
     setTimer(userHoursInput,userMinutesInput,userSecondsInput)
     Disable(["configure"])
     $("#start").removeAttr("disabled")
@@ -72,6 +86,7 @@ $("#configure").click((event)=>{
 
 $("#start").click((event)=>{
     Disable(["start","reset"])
+    
 
     timeout = moment.duration({
         seconds: userSecondsInput,
@@ -80,7 +95,7 @@ $("#start").click((event)=>{
     })
     var timeoutClone = timeout.clone()
 
-        var timerID= setInterval(()=>{
+        timerID = setInterval(()=>{
         timeout.subtract(1,"s")
         setTimer(timeout._data.hours,timeout._data.minutes,timeout._data.seconds)
         if($("#timerHours").text() ==0 && $("#timerMinutes").text() == 0 &&
@@ -90,10 +105,20 @@ $("#start").click((event)=>{
             return
         }
         },1000)
+
+        $("#stop").removeAttr("disabled")
+      
 })
 
-$("#stop").click(console.log(userSecondsInput))
+$("#stop").click(()=>{
+    Disable(["stop"])
+    $("#configure").removeAttr("disabled")
+    $("#reset").removeAttr("disabled")
+    clearInterval(timerID)
+}
+)
 
 
 
 
+$(".timerArea").css("font-size","40px")
