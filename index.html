@@ -62,25 +62,34 @@
     <div class="container mt-8">
         <div class="tile is-ancestor notification is-light mt-8">
             <div class = "tile is-parent notification is-light">
-                <button class="button is-success box" id="start">
-                    Start
-                </button>
+                <div class="tile is-child notification is-light">
+                    <button class="button is-success box" id="start">
+                        Start
+                    </button>
+                </div>
+                <div class="tile is-child notification is-light">
+                    <button class="button is-danger box" id="stop">
+                        Stop
+                    </button>
+                </div>
+                
+
             </div>
             <div class="tile is-parent notification is-light">
-                <div class="tile is-child box is-light" id="timerHours">
+                <div class="tile is-child box is-light" id="timerHours" style="display: flex; align-items: center; justify-content: center;">
 
                 </div>
                 <div class="tile is-child is-light" style="display: flex; align-items: center; justify-content: center;">
                     :
                 </div>
                 
-                <div class="tile is-child box is-light" id="timerMinutes">
+                <div class="tile is-child box is-light" id="timerMinutes" style="display: flex; align-items: center; justify-content: center;">
 
                 </div>
                 <div class="tile is-child is-light" style="display: flex; align-items: center; justify-content: center;">
                     :
                 </div>
-                <div class="tile is-child box is-light" id="timerSeconds">
+                <div class="tile is-child box is-light" id="timerSeconds" style="display: flex; align-items: center; justify-content: center;">
 
                 </div>
                 
@@ -89,7 +98,20 @@
             </div>
         </div>
     </div>
-    
+
+   
+
+    <div class="modal" id="modal">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+         <div class="tile is-ancestor is-notification is-light">
+            <div class="tile is-parent is-notification">
+                Time is up!
+            </div>
+         </div>
+        </div>
+        <button class="modal-close is-large" aria-label="close">close</button>
+      </div>
 
     <script src="https://momentjs.com/downloads/moment.js"></script>
 
