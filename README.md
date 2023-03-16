@@ -1,6 +1,6 @@
 # Timer-App
 
-This is a front-end application that allows the user to set and start a timer. 
+This is a front-end application that allows the user to set, start, and stop a timer.
 
 ## Running the app:
 - Visit: https://oilpainter1.github.io/Timer-App/
