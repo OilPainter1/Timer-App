@@ -2,8 +2,8 @@
 
 This is a front-end application that allows the user to set and start a timer. 
 
-https://oilpainter1.github.io/Timer-App/
-
+## Running the app
+- Visit: https://oilpainter1.github.io/Timer-App/
 
 ## Technologies Used:
 - HTML
